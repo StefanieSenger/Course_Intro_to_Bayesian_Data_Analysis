@@ -1,4 +1,4 @@
-# Notes and exercised from week 1 (Introduction)
+# Notes from week 1 (Introduction)
 
 library(extraDistr)
 
@@ -17,6 +17,24 @@ pbinom(0:10, size=10, prob=0.5) # cumilative probabilities for an event ocurring
 props <-pbinom(0:10, size=10, prob=0.5) # saving the cumulated probabilities
 qbinom(props, size=10, prob=0.5) # what's the quantile q such that p=p?
 
+# Continious random variables (more specifically normal distribution for our purpose)
+rnorm(5, mean=0, sd=1) # generating 5 datapoints from the standard normal distribution
+pnorm(2) # probability of observing 2 or less
+pnorm(2, lower.tail = FALSE) # probability of observing 2 or larger
+qnorm(0.9772499) # what's the quantile so that area under curve left to it is less than 0.9772499
+dnorm(2) # density at a certain point
+
+# Bivariate distribution (joint distribution of two variables)
+Sigma <- matrix(c(5^2, 5*10*0.6, 5*10*0.6, 10^2), nrow = 2, ncol = 2) # defining a variance-covaricance matrix
+u <- MASS::mvrnorm(n=100, mu=c(0,0), Sigma=Sigma ) # generating data
+head(u, n=3) # plotting first n rows
+
+
+
+
+
+# Exercises from week 1 (Introduction)
+
 # Question: Consider participating in a lottery ten times. Each time the probability of winning 
 # a prize is 0.10. What is the probability of winning exactly 5 times?
 dbinom(0:10, size=10, prob=0.1)[5]
@@ -26,13 +44,6 @@ dbinom(0:10, size=10, prob=0.1)[5]
 # to three digits.
 round(pbinom(2, size=10, prob=0.15),3)
 
-# Continious random variables
-rnorm(5, mean=0, sd=1) # generating 5 datapoints from the standard normal distribution
-pnorm(2) # probability of observing 2 or less
-pnorm(2, lower.tail = FALSE) # probability of observing 2 or larger
-qnorm(0.9772499) # what's the quantile so that area under curve left to it is less than 0.9772499
-dnorm(2) # density at a certain point
-
 # Question: Given a standard normal distribution, what is the probability of getting a value 
 # lower than -3?
 pnorm(-3)
@@ -40,11 +51,6 @@ pnorm(-3)
 # Question: Given a standard normal distribution, what is the probability of getting a value 
 # higher than -3?
 pnorm(-3, lower.tail = FALSE)
-
-# Bivariate distribution (joint distribution of two variables)
-Sigma <- matrix(c(5^2, 5*10*0.6, 5*10*0.6, 10^2), nrow = 2, ncol = 2) # defining a variance-covaricance matrix
-u <- MASS::mvrnorm(n=100, mu=c(0,0), Sigma=Sigma ) # generating data
-head(u, n=3)
 
 # Question: Compute the probability of obtaining a value less than or equal to 5 in a normal distribution 
 # with mean 3 and standard deviation 1. 
