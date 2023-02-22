@@ -9,6 +9,8 @@ sum(dbinom(7, size=10, prob=c(0.1,0.5,0.9)))/3
 
 
 
+# Exercises from week 2 (Bayesian Data Analysis)
+
 # Question: "We ask a subject 10 yes/no questions, and the subject returns 0 correct answers. 
 # We assume a binomial likelihood function for this data. We also assume a Beta(1, 1) 
 # prior on the parameter θ, which represents the probability of success. 

@@ -1,4 +1,4 @@
-# Some other exercises on statistics and probability in more general terms
+# More exercises on statistics and probability in R
 
 # Question: A set of elementary school student heights are normally distributed with a mean of 105 centimeters and a standard deviation of 7 centimeters.
 # What proportion of student heights are between 94.5 centimeters and 115.5 centimeters?
@@ -44,3 +44,28 @@ p_a*p_b
 # She found that 75% of the students believed both headlines.
 # Find the probability that a randomly selected person from this sample believed the true headline OR believed the false headline.
 0.9+0.82-0.75
+
+# Question: What is the maximum likelihood estimate of the mean of a normal distribution 
+# if we have only one data point sampled from the distribution, and this data point has the value 3?
+3
+
+# Question: Compute the probability of obtaining a value between 1 and 5 in a normal distribution with mean 4 and standard deviation 3.
+pnorm(5, mean=4, sd=3) - pnorm(1, mean=4, sd=3) 
+
+# Question: Compute the probability of obtaining a value between 1 and 1.5 in a normal distribution with mean 1 and standard deviation 0.5.
+pnorm(1.5, mean=1, sd=0.5) - pnorm(1, mean=1, sd=0.5) 
+
+# Question: Consider participating in a lottery ten times. Each time, the probability of winning a prize is 0.10. 
+# What is the probability of winning exactly 3 times?
+dbinom(0:10, size=10, prob=0.1)[3]
+
+# Question: Suppose we want to define a prior on the number of words a person types per day 
+# (here, we assume that everyone types at least some words a day, not 0). 
+# Which prior DOES NOT strongly violate common sense assumptions? Only one answer is correct.
+# Uniform(0, 6000)
+# Normal(0, 12000)
+# Normal(3000, 3000)
+# Normal+(5000, 20000) 
+answer <- 'Normal+(5000, 20000)'
+answer
+
